@@ -25,13 +25,14 @@ class MathTest: XCTestCase {
     func testFibonnaci() {
         
         let positions: Int = 4
-        let results: Array<Int>! = math.fib(positions)
+        let results: Array<Int>! = math.fibNormal(positions)
         
         //test results
         buildResultsTest(results)
         
     }
-
+    
+    
     
     //recursive option
     func testFibRecursive() {
@@ -39,7 +40,7 @@ class MathTest: XCTestCase {
         let positions: Int = 9
         
         //set the number of iterations
-        math.fib(positions)
+        math.fibRecursive(positions, sequence: [0, 1])
         
         
     }

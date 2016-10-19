@@ -12,13 +12,13 @@ import Foundation
 extension String {
   
     
-    //compute the length of string
+    //compute the length
     var length: Int {
         return self.characters.count
     }
     
     
-    //returns characters of a string up to a specified index
+    //returns characters up to a specified index
     func substringToIndex(to: Int) -> String {
         return self.substringToIndex(self.startIndex.advancedBy(to))
     }
@@ -110,23 +110,23 @@ extension Int {
 
 
 extension Array {
-
     
     //returns the middle index
-    func midIndex() -> Int {
-        return Int(floor(Double(self.count / 2)))
+    func midIndex() -> Index {
+        return startIndex + (count / 2)
     }
     
     
     //returns the first index
-    func minIndex() ->Int {
-        return 0
+    func minIndex() -> Index {
+        return startIndex
     }
     
-
+    
     //returns the max index
-    func maxIndex() ->Int {
-        return self.count - 1
+    func maxIndex() -> Index {
+        return endIndex - 1
     }
     
 }
+

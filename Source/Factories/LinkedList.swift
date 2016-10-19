@@ -32,7 +32,7 @@ public class LinkedList<T: Equatable> {
                 //cycle through the list of items
                 while current.next != nil {
                     current = current.next!
-                    x++
+                    x += 1
                 }
                 
                 return x
@@ -44,10 +44,7 @@ public class LinkedList<T: Equatable> {
     
     //empty list check
     func isEmpty() -> Bool! {
-        
-        // returns true if count is 0 or if the list's head is nil
         return self.count == 0 || head.key == nil
-        
     }
     
     
@@ -98,11 +95,11 @@ public class LinkedList<T: Equatable> {
         print("------------------")
         
         //assign the next instance
-        while (current != nil) {
+        
+        while current != nil {
             print("link item is: \(current.key)")
             current = current.next
         }
-        
         
     }
     
@@ -126,7 +123,7 @@ public class LinkedList<T: Equatable> {
             //cycle through the list of items
             while (index != x) {
                 current = current.next
-                x++
+                x += 1
             }
             
             return current
@@ -134,7 +131,7 @@ public class LinkedList<T: Equatable> {
         } //end else
         
         
-    } //end function
+    }
 
     
     
@@ -250,7 +247,7 @@ public class LinkedList<T: Equatable> {
             //update the assignments
             trailer = current
             current = current?.next
-            listIndex++
+            listIndex += 1
             
         } //end while
         

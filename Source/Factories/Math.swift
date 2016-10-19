@@ -10,18 +10,20 @@ import Foundation
 
 
 class Math {
-
+    
 
     //MARK: Fibonacci algorithms
     
     
     //build fibonacci sequence to a specified position - default
-    func fib(n: Int) -> Array<Int>! {
+    func fibNormal(n: Int) -> Array<Int>! {
         
         
-        if n < 2 {
+        //check trivial condition
+        guard n > 2 else {
             return nil
         }
+        
         
         //initialize the sequence
         var sequence: Array<Int> = [0, 1]
@@ -41,20 +43,23 @@ class Math {
         return sequence
         
     }
-
+    
     
     
     //build fibonacci sequence to a specified position - recursive
-    func fib(n: Int, var sequence: Array<Int> = [0, 1]) {
-
+    func fibRecursive(n: Int, sequence: Array<Int> = [0, 1]) {
         
-        //initialize sequence
-        if n < 2 {
+
+        //check trivial condition
+        guard n > 2 else {
             return
         }
         
+
+        //mutated copy
+        var output = sequence
         
-        let i: Int = sequence.count
+        let i: Int = output.count
         
         
         //set base condition
@@ -62,15 +67,13 @@ class Math {
             return
         }
         
-        let results: Int = sequence[i - 1] + sequence[i - 2]
-        sequence.append(results)
+        let results: Int = output[i - 1] + output[i - 2]
+        output.append(results)
 
         
         //set iteration
-        fib(n, sequence: sequence)
-        
+        fibRecursive(n, sequence: output)
     
-
     }
     
     
@@ -78,7 +81,9 @@ class Math {
     //build fibonacci sequence to a specified position - trailing closure
     func fib(n: Int, formula: Array<Int> -> Int) -> Array<Int>! {
                 
-        if n < 2 {
+
+        //check trivial condition
+        guard n > 2 else {
             return nil
         }
         
